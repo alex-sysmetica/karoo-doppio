@@ -42,3 +42,13 @@ CLAUDE.local.md
 # Logs and profiler dumps
 *.log
 *.hprof
+
+# Release output: APKs and the generated manifest are published as release
+# assets, never committed
+/app/release/
+manifest.json
+
+# Ride recordings and screen captures can hold real locations and accounts
+*.fit
+*.gpx
+screencaps/

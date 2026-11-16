@@ -1,0 +1,14 @@
+# Text files are stored with LF and checked out with LF on every platform.
+* text=auto eol=lf
+
+# Windows scripts keep CRLF.
+*.bat text eol=crlf
+
+# Binary files are never converted or diffed as text.
+*.jar binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.webp binary
+*.ttf binary
+*.otf binary

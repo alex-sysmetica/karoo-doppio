@@ -1,0 +1,44 @@
+# Build output
+.gradle/
+build/
+build.nosync/
+.kotlin/
+.cxx/
+.externalNativeBuild/
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Machine-specific configuration
+local.properties
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Signing keys and their passwords: never commit these
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+
+# Secrets and tokens
+.env
+.env.*
+!.env.example
+secrets.properties
+google-services.json
+
+# Notes and assistant settings that stay on the developer's machine
+CLAUDE.local.md
+*.local.md
+.claude/
+
+# Logs and profiler dumps
+*.log
+*.hprof

@@ -1,0 +1,45 @@
+#!/bin/sh
+# Stops a commit that would publish keys, tokens or personal data.
+#
+# This repository is public, and so is its whole history. To skip the checks
+# for one commit, after reading the diff yourself: git commit --no-verify
+
+. "$(dirname "$0")/private-data.sh"
+
+status=0
+
+# 1. The author e-mail stays in the history: only a GitHub noreply address.
+author_email=$(git var GIT_AUTHOR_IDENT | sed -E 's/^.*<([^>]*)>.*$/\1/')
+case "$author_email" in
+    *@users.noreply.github.com) ;;
+    *)
+        echo "pre-commit: the author e-mail is not a GitHub noreply address." >&2
+        echo "  Fix: git config user.email \"<id>+<user>@users.noreply.github.com\"" >&2
+        status=1
+        ;;
+esac
+
+# 2. Files that must never be committed, whatever .gitignore says.
+forbidden='(^|/)(local\.properties|keystore\.properties|secrets\.properties|google-services\.json|CLAUDE\.local\.md|\.env(\.[^/]*)?)$|\.(jks|keystore|p12|pem|key)$'
+bad_files=$(git diff --cached --name-only --diff-filter=ACMR \
+    | grep -E "$forbidden" \
+    | grep -Ev '(^|/)\.env\.example$')
+if [ -n "$bad_files" ]; then
+    echo "pre-commit: these files must not be committed:" >&2
+    printf '%s\n' "$bad_files" | sed 's/^/  /' >&2
+    status=1
+fi
+
+# 3. Added lines that look like private data. The hooks hold the patterns
+#    themselves, so they are left out of the scan.
+hits=$(git diff --cached --no-color -U0 --diff-filter=ACMR -- . ':(exclude).githooks' \
+    | grep -E '^\+' \
+    | grep -Ev '^\+\+\+ ' \
+    | find_private_data)
+if [ -n "$hits" ]; then
+    echo "pre-commit: the staged changes look like they contain private data:" >&2
+    printf '%s\n' "$hits" | sed 's/^/  /' >&2
+    status=1
+fi
+
+exit $status

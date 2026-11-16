@@ -1,0 +1,51 @@
+#!/bin/sh
+# Checks the commit message.
+#
+#   [KE-21]: Render the secondary value in grey
+#
+#   Why the change was needed, wrapped at 72 characters.
+
+. "$(dirname "$0")/private-data.sh"
+
+# Drop comment lines and everything below the scissors line of "commit -v".
+message=$(sed -e '/^# -* >8 -*$/,$d' -e '/^#/d' "$1")
+subject=$(printf '%s\n' "$message" | sed -n '1p')
+second_line=$(printf '%s\n' "$message" | sed -n '2p')
+
+# Messages git writes itself pass as they are.
+case "$subject" in
+    "Merge "* | "Revert "* | "fixup! "* | "squash! "* | "amend! "*) exit 0 ;;
+esac
+
+status=0
+
+if ! printf '%s\n' "$subject" | grep -Eq '^(\[KE-[0-9]+\])+: [A-Z]'; then
+    echo "commit-msg: the subject must look like \"[KE-21]: Render the secondary value\"." >&2
+    status=1
+fi
+
+if [ "${#subject}" -gt 72 ]; then
+    echo "commit-msg: the subject has ${#subject} characters; the limit is 72." >&2
+    status=1
+fi
+
+case "$subject" in
+    *.)
+        echo "commit-msg: the subject must not end with a full stop." >&2
+        status=1
+        ;;
+esac
+
+if [ -n "$second_line" ]; then
+    echo "commit-msg: leave the second line empty, between the subject and the body." >&2
+    status=1
+fi
+
+hits=$(printf '%s\n' "$message" | find_private_data)
+if [ -n "$hits" ]; then
+    echo "commit-msg: the message looks like it contains private data:" >&2
+    printf '%s\n' "$hits" | sed 's/^/  /' >&2
+    status=1
+fi
+
+exit $status

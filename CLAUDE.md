@@ -1,6 +1,6 @@
-# karoo-double-fields
+# karoo-doppio
 
-Public repository. Everything committed here is visible to everyone and stays in the history.
+Karoo Doppio: data fields for the Hammerhead Karoo that show two values in one cell. Public repository. Everything committed here is visible to everyone and stays in the history.
 
 ## Never commit
 

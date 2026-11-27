@@ -37,10 +37,12 @@ find_private_data() {
     done
 
     # E-mail addresses, except the ones that are public by design. Kotlin's
-    # labels (this@Outer.member, return@forEach.x) have the same shape: skip them.
+    # labels (this@Outer.member, super@Base.call) have the same shape: skip a
+    # label word whose label has a capital letter, as a class name has and a
+    # mail host does not.
     printf '%s\n' "$input" \
         | grep -Eo '[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}' \
-        | grep -Ev '^(this|super|return|break|continue)@' \
+        | grep -Ev '^(this|super|return|break|continue)@[^.]*[A-Z]' \
         | grep -Ev '@users\.noreply\.github\.com$|@example\.(com|org|net)$|^noreply@anthropic\.com$|^git@github\.com$' \
         | sed 's/^/e-mail address: /'
 

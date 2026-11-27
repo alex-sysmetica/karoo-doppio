@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Stand-in until the strings generator writes this file. Only what the Karoo host reads:
+     the app name, the extension name, the field names and their description. -->
+<resources>
+  <string name="host_app_name">Doppio</string>
+  <string name="host_extension_name">Doppio</string>
+  <string name="host_blend_1">Blend 1</string>
+  <string name="host_blend_2">Blend 2</string>
+  <string name="host_blend_3">Blend 3</string>
+  <string name="host_blend_4">Blend 4</string>
+  <string name="host_blend_5">Blend 5</string>
+  <string name="host_blend_6">Blend 6</string>
+  <string name="host_blend_7">Blend 7</string>
+  <string name="host_blend_8">Blend 8</string>
+  <string name="host_blend_9">Blend 9</string>
+  <string name="host_blend_10">Blend 10</string>
+  <string name="host_blend_description">Two shots of data in one field.</string>
+</resources>

@@ -51,8 +51,9 @@ class ModuleTableTest {
             edge(":app", ":app-core", "implementation", fix = true),
             edge(":app", ":app-core", "releaseImplementation", fix = true),
             edge(":app-shell", ":app-core", "testImplementation", fix = true),
+            edge(":app-field", ":app-core", "testFixturesApi", fix = true),
         )
-        assertEquals(3, ModuleTable.violations(modules, bad).size)
+        assertEquals(4, ModuleTable.violations(modules, bad).size)
     }
 
     @Test

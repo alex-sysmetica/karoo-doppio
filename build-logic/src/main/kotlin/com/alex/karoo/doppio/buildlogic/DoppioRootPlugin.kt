@@ -38,6 +38,9 @@ class DoppioRootPlugin : Plugin<Project> {
  * Sets each strict switch as a system property of every test task in the graph: "true" when the
  * Gradle property of that name is `true` or when `releaseManifest` is in the graph, else "false".
  * So `./gradlew :app:releaseManifest` runs the tests with all three on, with no `-P` flag.
+ *
+ * This edits the test tasks once the graph is known, which the configuration cache does not
+ * allow: keep the cache off, or move this to a provider before turning it on.
  */
 private fun wireStrictSwitches(root: Project) {
     val fromProperties = STRICT_SWITCHES.associateWith { name ->

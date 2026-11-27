@@ -51,9 +51,13 @@ object ModuleTable {
     const val FIXTURE_MODULE = ":app-core"
     val fixtureUsers = setOf(":app-field", ":app")
 
-    /** A test fixtures edge is allowed in a test configuration and in `debugImplementation`. */
+    /**
+     * A test fixtures edge is allowed in a test configuration and in `debugImplementation`.
+     * A module's own `testFixtures…` configurations are not test configurations.
+     */
     fun fixtureConfiguration(name: String): Boolean =
-        name.startsWith("test") || name == "debugImplementation"
+        (name.startsWith("test") && !name.startsWith("testFixtures")) ||
+            name == "debugImplementation"
 
     /** Every edge that breaks the table, as a readable line. Empty when the graph is clean. */
     fun violations(modules: Collection<String>, edges: Collection<ModuleEdge>): List<String> {

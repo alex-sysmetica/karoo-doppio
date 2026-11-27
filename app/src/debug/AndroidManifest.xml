@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <!-- DebugGraph looks for the Karoo's app store to tell a Karoo from the emulator. -->
+  <queries>
+    <package android:name="io.hammerhead.appstore" />
+  </queries>
+
+  <application>
+    <!-- Debug tools: exported, so adb can start them. Never in a release build. -->
+    <activity
+      android:name=".debug.GalleryActivity"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio" />
+    <activity
+      android:name=".debug.FieldLabActivity"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio" />
+    <activity
+      android:name=".debug.LabActivity"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio" />
+    <activity
+      android:name=".debug.HostSimActivity"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio" />
+    <activity
+      android:name=".debug.ScreenOpener"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio" />
+    <receiver
+      android:name=".debug.SeedReceiver"
+      android:exported="true"
+      tools:ignore="ExportedReceiver" />
+
+    <!-- A provider, so it runs before DoppioApp.onCreate and can swap the graph. -->
+    <provider
+      android:name=".debug.DebugGraph"
+      android:authorities="${applicationId}.debuggraph"
+      android:exported="false" />
+  </application>
+</manifest>

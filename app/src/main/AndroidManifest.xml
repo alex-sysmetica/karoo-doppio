@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <application
+    android:name=".DoppioApp"
+    android:allowBackup="false"
+    android:icon="@drawable/ic_doppio"
+    android:label="@string/host_app_name">
+
+    <!-- The app: set up the ten Blends. In the Karoo's app list. -->
+    <activity
+      android:name=".ui.MainActivity"
+      android:configChanges="uiMode|locale|layoutDirection|keyboard|keyboardHidden|navigation|orientation|screenSize|smallestScreenSize|screenLayout|density|fontScale"
+      android:exported="true"
+      android:theme="@style/Theme.Doppio">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+
+    <!-- The extension: the Karoo system finds it by this action and reads its fields from
+         xml/extension_info, which generateExtensionInfo writes from gradle.properties. -->
+    <service
+      android:name=".ride.DoppioExtension"
+      android:exported="true"
+      tools:ignore="ExportedService">
+      <intent-filter>
+        <action android:name="io.hammerhead.karooext.KAROO_EXTENSION" />
+      </intent-filter>
+      <meta-data
+        android:name="io.hammerhead.karooext.EXTENSION_INFO"
+        android:resource="@xml/extension_info" />
+    </service>
+
+    <!-- Opened by the update card: hands over to the Karoo's own app page. -->
+    <activity
+      android:name="com.alex.karoo.doppio.kit.UpdateActivity"
+      android:excludeFromRecents="true"
+      android:exported="true"
+      android:noHistory="true"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar">
+      <intent-filter>
+        <action android:name="${applicationId}.UPDATE" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+
+    <!-- manifest.json of the latest release: the Karoo's app page and the update check read it. -->
+    <meta-data
+      android:name="io.hammerhead.karooext.MANIFEST_URL"
+      android:value="${manifestUrl}" />
+
+    <!-- androidx.core brings the profile installer (through lifecycle). Doppio ships no baseline
+         profile, and its receiver would be a fourth exported component: the release has exactly
+         three. Only the installer's own entries go: the startup provider stays for any other
+         library initializer. Lint sees only the compile classpath, where neither class is,
+         hence MissingClass is ignored here. -->
+    <receiver
+      android:name="androidx.profileinstaller.ProfileInstallReceiver"
+      tools:ignore="MissingClass"
+      tools:node="remove" />
+    <provider
+      android:name="androidx.startup.InitializationProvider"
+      android:authorities="${applicationId}.androidx-startup"
+      tools:ignore="MissingClass"
+      tools:node="merge">
+      <meta-data
+        android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+        tools:node="remove" />
+    </provider>
+  </application>
+</manifest>

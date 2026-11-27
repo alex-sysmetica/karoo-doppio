@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- The app draws its own title bar and page colours. Light only: the Karoo's own Settings
+       has no dark theme, and its night mode is off. -->
+  <style name="Theme.Doppio" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
+</resources>

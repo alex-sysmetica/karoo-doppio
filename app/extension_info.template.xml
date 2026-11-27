@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The template of res/xml/extension_info.xml. The task generateExtensionInfo fills the
+     placeholders in double braces from gradle.properties (doppio.extensionId, doppio.typePrefix,
+     doppio.fieldCount; doppio.probe.* in a probe build) and repeats the slots block once per
+     field, 1 to the field count. Never type an id here. -->
+<ExtensionInfo
+  displayName="@string/host_extension_name"
+  icon="@drawable/ic_doppio"
+  id="{{extensionId}}"
+  scansDevices="false">
+
+  <!-- {{#slots}} -->
+  <DataType
+    description="@string/host_blend_description"
+    displayName="@string/host_blend_{{slot}}"
+    graphical="true"
+    icon="@drawable/ic_doppio_glyph"
+    typeId="{{typePrefix}}{{slot}}" />
+  <!-- {{/slots}} -->
+</ExtensionInfo>

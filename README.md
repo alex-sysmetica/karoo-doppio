@@ -2,7 +2,7 @@
 
 # Karoo Doppio
 
-**Two shots of data in one field.** Doppio will add ten data fields to the [Hammerhead Karoo](https://www.hammerhead.io/) 3 that look like the Karoo's own. Your main value stays big. A second one rides along beside it, or on top of it. *Doppio* is Italian for double.
+**Two shots of data in one field.** Doppio will add ten data fields to the [Hammerhead Karoo 3](https://www.hammerhead.io/) that look like the Karoo's own. Your main value stays big. A second one rides along beside it, or on top of it. *Doppio* is Italian for double.
 
 > **Status:** in development. The design is done and the features are being built. Nothing is released yet, so there is nothing to install.
 

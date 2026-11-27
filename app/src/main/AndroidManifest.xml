@@ -54,8 +54,9 @@
 
     <!-- androidx.core brings the profile installer (through lifecycle). Doppio ships no baseline
          profile, and its receiver would be a fourth exported component: the release has exactly
-         three. Its startup provider runs only that installer, so both go. Lint sees only the
-         compile classpath, where neither class is, hence MissingClass is ignored here. -->
+         three. Only the installer's own entries go: the startup provider stays for any other
+         library initializer. Lint sees only the compile classpath, where neither class is,
+         hence MissingClass is ignored here. -->
     <receiver
       android:name="androidx.profileinstaller.ProfileInstallReceiver"
       tools:ignore="MissingClass"
@@ -64,6 +65,10 @@
       android:name="androidx.startup.InitializationProvider"
       android:authorities="${applicationId}.androidx-startup"
       tools:ignore="MissingClass"
-      tools:node="remove" />
+      tools:node="merge">
+      <meta-data
+        android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+        tools:node="remove" />
+    </provider>
   </application>
 </manifest>

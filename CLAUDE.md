@@ -25,13 +25,16 @@ Commit with a GitHub noreply address (`<id>+<user>@users.noreply.github.com`). T
   - Starts with a verb in the imperative: Add, Fix, Remove, Rename, Update.
   - At most 72 characters, no full stop at the end.
   - Several tickets: `[KE-21][KE-22]: …`.
+  - Outside contributors use the GitHub issue number instead: `[#42]: Add the wind field`.
 - Blank line, then a body that says why the change was needed and anything a reader of the diff cannot see. Wrap at 72 characters. Skip the body only when the subject says it all.
 - One logical change per commit. Formatting-only changes go in their own commit.
 - No private details in the message either: the history is as public as the code.
 
 ## Branches
 
-`<type>/KE-<n>-<slug>`, where type is `feature`, `bugfix` or `task`, and the slug is two to four lower-case words: `feature/KE-21-secondary-value`. Branch from `main`, open the pull request into `main`.
+`<type>/KE-<n>-<slug>`, where type is `feature`, `bugfix`, `refactor` or `task`, and the slug is two to four lower-case words: `feature/KE-21-secondary-value`. Branch from `main`, open the pull request into `main`. Outside contributors use the GitHub issue number: `feature/42-wind-field`.
+
+GitHub refuses any other branch name, a direct push to `main`, and any tag or `release/` branch not made by the maintainer.
 
 ## Code
 

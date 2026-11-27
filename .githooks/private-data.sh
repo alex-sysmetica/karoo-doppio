@@ -36,9 +36,11 @@ find_private_data() {
         printf '%s\n' "$input" | grep -E -- "$pattern" | cut -c1-120
     done
 
-    # E-mail addresses, except the ones that are public by design.
+    # E-mail addresses, except the ones that are public by design. Kotlin's
+    # labels (this@Outer.member, return@forEach.x) have the same shape: skip them.
     printf '%s\n' "$input" \
         | grep -Eo '[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}' \
+        | grep -Ev '^(this|super|return|break|continue)@' \
         | grep -Ev '@users\.noreply\.github\.com$|@example\.(com|org|net)$|^noreply@anthropic\.com$|^git@github\.com$' \
         | sed 's/^/e-mail address: /'
 

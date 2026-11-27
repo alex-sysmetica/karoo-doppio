@@ -2,6 +2,7 @@
 # Checks the commit message.
 #
 #   [KE-21]: Render the secondary value in grey
+#   [#42]: Add the wind field          (outside contributors: the GitHub issue)
 #
 #   Why the change was needed, wrapped at 72 characters.
 
@@ -19,8 +20,9 @@ esac
 
 status=0
 
-if ! printf '%s\n' "$subject" | grep -Eq '^(\[KE-[0-9]+\])+: [A-Z]'; then
-    echo "commit-msg: the subject must look like \"[KE-21]: Render the secondary value\"." >&2
+if ! printf '%s\n' "$subject" | grep -Eq '^(\[(KE-[0-9]+|#[0-9]+)\])+: [A-Z]'; then
+    echo "commit-msg: the subject must look like \"[KE-21]: Render the secondary value\"," >&2
+    echo "commit-msg: or, with a GitHub issue number, \"[#42]: Add the wind field\"." >&2
     status=1
 fi
 

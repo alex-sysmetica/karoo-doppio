@@ -7,8 +7,12 @@ import org.junit.Test
 class ModuleTableTest {
     private val modules = ModuleTable.allowed.keys
 
-    private fun edge(from: String, to: String, conf: String = "implementation", fix: Boolean = false) =
-        ModuleEdge(from, to, conf, fix)
+    private fun edge(
+        from: String,
+        to: String,
+        conf: String = "implementation",
+        fix: Boolean = false,
+    ) = ModuleEdge(from, to, conf, fix)
 
     @Test
     fun acceptsEveryEdgeOfTheTable() {

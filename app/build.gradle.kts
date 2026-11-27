@@ -69,7 +69,8 @@ android {
             signingConfig = signing
             isMinifyEnabled = false
         }
-        // Ride build R0: installs beside Doppio with its own ids (gradle.properties, doppio.probe.*).
+        // Ride build R0: installs beside Doppio with its own ids (doppio.probe.* in
+        // gradle.properties).
         create("probe") {
             initWith(getByName("debug"))
             applicationIdSuffix = ".probe"

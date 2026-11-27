@@ -116,8 +116,10 @@ fun registerGenerateExtensionInfo(project: Project) {
         all.configure { dependsOn(task) }
         variant.sources.res?.addGeneratedSourceDirectory(task, GenerateExtensionInfo::outputDir)
         variant.buildConfigFields?.apply {
-            put("EXTENSION_ID", BuildConfigField("String", "\"${ids.extensionId}\"", "Extension id"))
-            put("TYPE_PREFIX", BuildConfigField("String", "\"${ids.typePrefix}\"", "Type-id prefix"))
+            val id = "\"${ids.extensionId}\""
+            val prefix = "\"${ids.typePrefix}\""
+            put("EXTENSION_ID", BuildConfigField("String", id, "Extension id"))
+            put("TYPE_PREFIX", BuildConfigField("String", prefix, "Type-id prefix"))
             put("FIELD_COUNT", BuildConfigField("int", ids.fieldCount, "Number of fields"))
         }
     }

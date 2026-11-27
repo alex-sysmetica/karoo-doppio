@@ -31,7 +31,9 @@ Commit with a GitHub noreply address (`<id>+<user>@users.noreply.github.com`). T
 
 ## Branches
 
-`<type>/KE-<n>-<slug>`, where type is `feature`, `bugfix` or `task`, and the slug is two to four lower-case words: `feature/KE-21-secondary-value`. Branch from `main`, open the pull request into `main`.
+`<type>/KE-<n>-<slug>`, where type is `feature`, `bugfix`, `refactor` or `task`, and the slug is two to four lower-case words: `feature/KE-21-secondary-value`. Branch from `main`, open the pull request into `main`.
+
+GitHub refuses any other branch name, a direct push to `main`, and any tag or `release/` branch not made by the maintainer.
 
 ## Code
 

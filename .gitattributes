@@ -12,3 +12,4 @@
 *.webp binary
 *.ttf binary
 *.otf binary
+*.gz binary

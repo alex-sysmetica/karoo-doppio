@@ -8,6 +8,8 @@
 
 Want to help build it? See [Help build Doppio](#-help-build-doppio).
 
+<br>
+
 ## ✨ What Doppio does
 
 1.0.0, the first release, will bring:
@@ -22,6 +24,8 @@ Want to help build it? See [Help build Doppio](#-help-build-doppio).
 - **Five languages.** English, Deutsch (German), Polski (Polish), Українська (Ukrainian) and 日本語 (Japanese).
 
 ![Doppio's menu, like a café board. House styles: six example fields showing lap time 12:34 with ride time 45:07, each in another style and colour (Baseline; Baseline, second in colour; Baseline, second first; Header, left; Header, right; Header, above the name). Colours: twelve to match your kit, from Karoo green to Doppio brown. House blends: ready-made pairs such as Sunset with ETA, "Home before dark?", or brew your own from any two values](docs/images/promo-styles.webp)
+
+<br>
 
 ## 🔢 Fields and values
 
@@ -47,6 +51,8 @@ Doppio 1.0.0 will add ten fields, **Blend 1** to **Blend 10**. Each one takes a 
 </details>
 
 Wind, AXS gears, tyre pressure and more are still roasting. Look out for them in later updates.
+
+<br>
 
 ## ☕ House blends
 
@@ -134,6 +140,8 @@ Pour a house blend, or brew your own. 1.0.0 will come with 37 house blends: read
 
 </details>
 
+<br>
+
 ## 📲 Install
 
 > 🚧 Under development. Nothing is released yet. The steps below are the plan for 1.0.0.
@@ -168,6 +176,8 @@ On the Karoo:
 
 When a new version is out, the Karoo shows an update card. Tap it, then **UPDATE** on the Karoo's app page. A switch in Doppio's Settings turns update notices off.
 
+<br>
+
 ## 🆕 What's new
 
 ### 1.0.0: The first pour
@@ -180,6 +190,8 @@ When a new version is out, the Karoo shows an update card. Tap it, then **UPDATE
 
 [![All releases](https://img.shields.io/badge/%F0%9F%93%9C_All_releases-%E2%86%92-8B5A2B?style=for-the-badge)](CHANGELOG.md)
 
+<br>
+
 ---
 
 ## 🧰 Help build Doppio
@@ -190,18 +202,26 @@ When a new version is out, the Karoo shows an update card. Tap it, then **UPDATE
 
 📖 Read the [full guide](CONTRIBUTING.md) before you start: how to build Doppio, the rules for branches, commits and pull requests, and what gets closed without review.
 
+<br>
+
 ## 🔒 Privacy
 
 No analytics. The only thing Doppio will send is an update check to GitHub, and you can switch it off in Settings.
+
+<br>
 
 ## 👨🏻‍💻 Credits
 
 - Built on Hammerhead's [karoo-ext](https://github.com/hammerheadnav/karoo-ext) SDK.
 - The native look of [karoo-mountaineer](https://github.com/Dubadai/karoo-mountaineer) and [karoo-betterintervals](https://github.com/Dubadai/karoo-betterintervals) set the bar.
 
+<br>
+
 ## 🏷️ Not affiliated
 
 Doppio is an independent project. It is not affiliated with Hammerhead or SRAM. Karoo, Hammerhead and AXS are trademarks of SRAM.
+
+<br>
 
 ## 📄 Licence
 

@@ -6,6 +6,8 @@ The full guide for anyone who wants to help: what to put in an issue, how to bui
 - 💡 **Have an idea for a new feature?** Open an issue first, so we agree on it before you write code.
 - 🔀 **Have a fix?** [Open a pull request](#-open-a-pull-request) into `main` that links its issue.
 
+<br>
+
 ## 🐞 Report an issue
 
 Search the [open issues](../../issues) first. If yours is there, add to it. Issue forms are coming. Until then, please include:
@@ -19,6 +21,8 @@ Search the [open issues](../../issues) first. If yours is there, add to it. Issu
 - For anything visual: a screenshot or a photo of the Karoo, and whether the ride theme was light or dark.
 
 Leave out personal data: no ride files, and crop maps and places out of your pictures.
+
+<br>
 
 ## 🔀 Open a pull request
 
@@ -50,6 +54,8 @@ Name a branch `<type>/<n>-<slug>`, where `<n>` is the issue number and the slug 
 - For a visual change: before and after pictures, in the light and the dark ride theme.
 - How you tested it: the tests you ran, and the Karoo and software version you tried it on.
 
+<br>
+
 ## 🚫 What gets closed without review
 
 We close these without review. You are welcome to open a new one once the gap is fixed.
@@ -78,6 +84,8 @@ We close these without review. You are welcome to open a new one once the gap is
 - Third-party code, fonts or pictures without a licence that allows them here.
 - A duplicate of an open pull request.
 
+<br>
+
 ## 🔧 Build it yourself
 
 > 🚧 Under development. The JDK version, the build commands and a local check script that runs every test will be listed here.
@@ -94,6 +102,8 @@ Commit with a GitHub noreply address (`<id>+<user>@users.noreply.github.com`). T
 
 There is no CI service.
 
+<br>
+
 ## 🏗️ Architecture
 
 > 🚧 Under development. The project skeleton is in place; the features are being built. A fuller description of each module will follow.
@@ -103,6 +113,8 @@ Eight Gradle modules:
 - `:karoo-ext`: Hammerhead's karoo-ext SDK, vendored: a copy of its source lives in this repository, so no package token is needed.
 - `:karoo-doppio-kit`, `:karoo-doppio-ui`, `:karoo-doppio-ui-android`: reusable kits.
 - `:app-core`, `:app-shell`, `:app-field`, `:app`: Doppio's own app.
+
+<br>
 
 ## 📐 Code conventions
 

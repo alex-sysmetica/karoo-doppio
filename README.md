@@ -182,6 +182,8 @@ No analytics. The only thing Doppio will send is an update check to GitHub, and 
 - House blends to start from
 - Baseline and Header styles
 
+[![All releases](https://img.shields.io/badge/%F0%9F%93%9C_All_releases-%E2%86%92-8B5A2B?style=for-the-badge)](CHANGELOG.md)
+
 ---
 
 ## 🧰 Help build Doppio

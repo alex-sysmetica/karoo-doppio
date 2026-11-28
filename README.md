@@ -168,10 +168,6 @@ On the Karoo:
 
 When a new version is out, the Karoo shows an update card. Tap it, then **UPDATE** on the Karoo's app page. A switch in Doppio's Settings turns update notices off.
 
-## 🔒 Privacy
-
-No analytics. The only thing Doppio will send is an update check to GitHub, and you can switch it off in Settings.
-
 ## 🆕 What's new
 
 ### 1.0.0: The first pour
@@ -194,7 +190,11 @@ No analytics. The only thing Doppio will send is an update check to GitHub, and 
 
 📖 Read the [full guide](CONTRIBUTING.md) before you start: how to build Doppio, the rules for branches, commits and pull requests, and what gets closed without review.
 
-## 🙏 Credits
+## 🔒 Privacy
+
+No analytics. The only thing Doppio will send is an update check to GitHub, and you can switch it off in Settings.
+
+## 👨🏻‍💻 Credits
 
 - Built on Hammerhead's [karoo-ext](https://github.com/hammerheadnav/karoo-ext) SDK.
 - The native look of [karoo-mountaineer](https://github.com/Dubadai/karoo-mountaineer) and [karoo-betterintervals](https://github.com/Dubadai/karoo-betterintervals) set the bar.
